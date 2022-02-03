@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class Food : MonoBehaviour
 {
     public int maxFood;
-    public Player player;
     public Text healText;
 
     private int _healPoints;
@@ -14,9 +13,12 @@ public class Food : MonoBehaviour
         _healPoints = Random.Range(1, maxFood + 1);
         healText.text = _healPoints.ToString();
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        player.health += _healPoints;
-        Destroy(gameObject);    
+        if(collision.collider.TryGetComponent(out Player player))
+        {
+            player.health += _healPoints;
+            Destroy(gameObject);
+        }
     }
 }

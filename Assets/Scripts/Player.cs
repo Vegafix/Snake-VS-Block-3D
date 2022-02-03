@@ -9,5 +9,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         healthText.text = health.ToString();
+        if (health <= 0)
+            Debug.Log("You Dead");
     }
 }

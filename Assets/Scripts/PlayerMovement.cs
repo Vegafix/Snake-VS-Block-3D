@@ -2,14 +2,21 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float forwardSpeed = 3f;
-    public float sidewaysForce = 500f;
+    public float forwardSpeed;
+    public float sidewaysForce;
+
+    private Rigidbody _rb;
+
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
     void FixedUpdate()
     {
-        transform.Translate(0, 0, forwardSpeed * Time.deltaTime);
+        _rb.velocity = Vector3.forward * forwardSpeed;
         if (Input.GetKey("d"))
-            transform.Translate(sidewaysForce * Time.deltaTime, 0, 0);
+            _rb.velocity = Vector3.right * sidewaysForce + Vector3.forward * forwardSpeed;
         if (Input.GetKey("a"))
-            transform.Translate(-sidewaysForce * Time.deltaTime, 0, 0);
+            _rb.velocity = Vector3.left * sidewaysForce + Vector3.forward * forwardSpeed;
     }
 }

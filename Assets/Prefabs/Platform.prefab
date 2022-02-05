@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.85882354, g: 0.85882354, b: 0.85882354, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1386,7 +1386,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: 23e4afad81db6344eaf31456c1af29a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1444,6 +1444,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHitPoints: 50
   hitPointText: {fileID: 4497809113832353046}
+  startColor: {r: 0, g: 0.11066723, b: 1, a: 0}
+  endColor: {r: 0, g: 1, b: 0.065164566, a: 0}
 --- !u!1 &4497809115346250116
 GameObject:
   m_ObjectHideFlags: 0

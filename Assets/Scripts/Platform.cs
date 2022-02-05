@@ -6,16 +6,24 @@ public class Platform : MonoBehaviour
 {
     public int maxHitPoints;
     public Text hitPointText;
+    //public Gradient colors;
+    //public float CycleTime;
+    //public Color c;
+    //private Renderer _rend;
+    //public Color endColor;
 
     private int _hitPoints;
 
     void Awake()
     {
         _hitPoints = Random.Range(1, maxHitPoints + 1);
+        //_rend = GetComponent<Renderer>();
+        //_rend.material.color = Color.Lerp(_rend.material.color, endColor, maxHitPoints);
     }
     private void Update()
     {
         hitPointText.text = _hitPoints.ToString();
+        //c = colors.Evaluate(1f / CycleTime * (Time.time % CycleTime));
     }
     private void OnCollisionEnter(Collision collision)
     {

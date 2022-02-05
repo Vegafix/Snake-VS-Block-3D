@@ -10,12 +10,18 @@ public class Game : MonoBehaviour
     public GameObject finishMenu;
     public Text levelNumber;
     public Text bestScoreText;
+    public int score;
+    public AudioClip winning;
+    public AudioClip losing;
+    [Min(0)]
+    public float volume;
 
     private float _restartDelay = 1f;
-    public int score;
+    private AudioSource _audio;
 
     private void Awake()
     {
+        _audio = GetComponent<AudioSource>();
         levelNumber.text = (SceneManager.GetActiveScene().buildIndex + 1).ToString();
 
     }
@@ -32,13 +38,16 @@ public class Game : MonoBehaviour
     public void Die()
     {
         movement.enabled = false;
-        player.healthText.enabled = false;
+        _audio.Stop();
+        _audio.PlayOneShot(losing, volume);
         Invoke("Lose", _restartDelay);
     }
     public void ReachFinish()
     {
         movement.enabled = false;
         finishMenu.SetActive(true);
+        _audio.Stop();
+        _audio.PlayOneShot(winning);
     }
     void Lose()
     {
